@@ -1,95 +1,98 @@
 <!-- 혁신을 현실로 ~ 스크롤마다 프레임~~~~ -->
 
 <template>
-  <section>
-    <div class="section2">
-      <div class="section2_bg">
-        <p class="section2_title">
-          혁신을 현실로.
-        </p>
-        <p class="section2_subtitle">
-          건물이 기술 그 잡채~
-        </p>
-        <p class="desc_1">기술은 혼자 존재할 때 보다 서로 연결되고 합쳐질 때</p>
-        <p class="desc_2">더 큰 의미를 갖습니다.</p>
-        <p class="desc_3">공간-기술-사람-로봇이 촘촘히 연결되고 융합되는</p>
-        <p class="desc_4">도전 속에 일상을 변화시킬 새로움을 만드는 것,</p>
-        <p class="desc_5">이것이 우리가 테크 컨버전스에 집중하는 이유입니다.</p>
-      </div>
+  <section class="section2">
+    <div class="section2_bg">
+      <picture>
+        <source srcset="@/assets/images/section2_3.jpg">
+        <img srcset="@/assets/images/section2_3.jpg" alt="네이버 건물">
+      </picture>
     </div>
+    <p class="section2_title">
+      혁신을 현실로.
+    </p>
   </section>
 </template>
 
 <script>
-
 window.addEventListener('scroll', function () {
   console.log(window.scrollY)
 });
+// 스크롤 위치 구하기
 
-// $(window).scroll(function() {
-//   var height = $(window).scrollTop();
-//   $('.section2_title').eq(0).css('opacity', y);
-// });
+export default {
+  name: 'Section2',
+
+  computed: {
+    titleFontSize() {
+      return (9 + Math.min(100, Math.max(0, this.scrollTop - 200))) + 'em'
+    },
+
+    titleOpacity() {
+      if (this.scrollTop < 300)
+        return Math.min(300, this.scrollTop - 30) * 0.01
+    }
+  },
+
+  props: ['scrollTop'],
+
+  data() {
+    return {
+
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
-section {
+.section2 {
   position: relative;
-  top: 2200px;
-  width: 100%;
-  height: 3000px;
-  background: linear-gradient(145deg, #000, #fff);
+  width: 100vw;
+  height: 500vh;
+  // background: pink;
+  // height: 2000px;
 
-  .section2 {
+  .section2_bg {
+    // sticky? background-attachment?
+
     position: sticky;
     top: 0px;
     width: 100%;
     height: 100vh;
-    background: url(@/assets/images/section2_3.jpg) no-repeat center/cover;
+
+    // background-attachment: fixed;
+    // height: 3000px;
     // 이미지 뭐로 하지...
 
-    .section2_bg {
+    picture {
       position: absolute;
-      width: 100%;
-      height: 700px;
-    }
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
 
-    .section2_title,
-    .section2_subtitle,
-    .desc_1,
-    .desc_2,
-    .desc_3,
-    .desc_4,
-    .desc_5 {
-      color: #fff;
-    }
+      img {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+      }
 
-    .section2_title {
-      margin-top: 350px;
-      font-size: 12em;
-      text-align: center;
-      font-family: 'NanumSquareNeoExtraBold';
+      // opacity: .2;
+      // background-color: pink;
     }
+  }
 
-    .section2_subtitle {
-      font-size: 12em;
-      text-align: center;
-      font-family: 'NanumSquareNeoExtraBold';
-    }
-
-    .desc_1,
-    .desc_2,
-    .desc_3,
-    .desc_4,
-    .desc_5 {
-      font-size: 2.2em;
-      text-align: center;
-      line-height: 40px;
-    }
-
-    .desc_2 {
-      margin-bottom: 30px;
-    }
+  .section2_title {
+    position: fixed;
+    top: 50%;
+    color: #fff;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'NanumSquareNeoExtraBold';
+    font-size: v-bind('titleFontSize');
+    opacity: v-bind('titleOpacity');
+    white-space: nowrap;
   }
 }
 </style>
