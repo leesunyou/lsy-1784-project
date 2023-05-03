@@ -1,5 +1,5 @@
 <template>
-  <div class="section3">
+  <section class="section3">
     <p class="title">
       건물이 기술 그 잡채~
     </p>
@@ -11,32 +11,85 @@
       <p class="desc2">도전 속에 일상을 변화시킬 새로움을 만드는 것,</p>
       <p class="desc2">이것이 우리가 테크 컨버전스에 집중하는 이유입니다.</p>
     </div>
-  </div>
+  </section>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: 'Section3',
+  computed: {
+    bgColor() {
+      return `rgba(0, 0, 0, ${this.scrollTop * 0.0016})`
+    },
+
+    // bgOpacity () {
+    //   return Math.min(30, this.scrollTop - 200) * 0.1
+    // },
+
+    titleOpacity() {
+      if (this.scrollTop < 550)
+        return Math.min(60, this.scrollTop - 500) * 0.05
+      return 1 - Math.min(60, this.scrollTop - 580) * 0.05
+    },
+
+    titleTransform() {
+
+    },
+
+    descOpacity() {
+      return Math.min(30, this.scrollTop - 620) * 0.03
+    },
+
+    descTransform() {
+
+    },
+  },
+
+  props: ['scrollTop'],
+
+  data() {
+    return {
+
+    }
+  }
+}
+</script>
 
 <style scoped lang="scss">
 .section3 {
+  position: relative;
   width: 100vw;
   height: 600vh;
-  position: relative;
-  background-color: #000;
-  opacity: .2;
+  margin-top: -100vh;
+  // background: #000;
+  background: v-bind('bgColor');
+  // opacity: v-bind('bgOpacity');
+  // opacity: .2;
 
   .title {
-    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     color: #fff;
-    font-size: 11em;
+    font-size: 9em;
     font-family: 'NanumSquareNeoExtraBold';
+    opacity: v-bind('titleOpacity');
+    white-space: nowrap;
   }
 
   .desc {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: #fff;
-    font-size: 2.2em;
+    font-size: 2.6em;
     line-height: 40px;
     text-align: center;
+    opacity: v-bind('descOpacity');
+    // transition: .5s;
 
     .desc1:nth-child(2) {
       margin-bottom: 30px;

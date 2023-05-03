@@ -4,8 +4,8 @@
   <section class="section2">
     <div class="section2_bg">
       <picture>
-        <source srcset="@/assets/images/section2_3.jpg">
-        <img srcset="@/assets/images/section2_3.jpg" alt="네이버 건물">
+        <source srcset="@/assets/images/section2.jpg">
+        <img srcset="@/assets/images/section2.jpg" alt="네이버 건물">
       </picture>
     </div>
     <p class="section2_title">
@@ -15,9 +15,9 @@
 </template>
 
 <script>
-window.addEventListener('scroll', function () {
-  console.log(window.scrollY)
-});
+// window.addEventListener('scroll', function () {
+//   console.log(window.scrollY)
+// });
 // 스크롤 위치 구하기
 
 export default {
@@ -25,12 +25,13 @@ export default {
 
   computed: {
     titleFontSize() {
-      return (9 + Math.min(100, Math.max(0, this.scrollTop - 200))) + 'em'
+      return (10 + Math.min(100, Math.max(0, this.scrollTop - 200))) + 'em'
     },
 
     titleOpacity() {
-      if (this.scrollTop < 300)
-        return Math.min(300, this.scrollTop - 30) * 0.01
+      if (this.scrollTop < 150)
+      return Math.min(20, this.scrollTop - 120) * 0.05
+      return 1 - Math.min(40, this.scrollTop - 200) * 0.03
     }
   },
 
@@ -48,7 +49,8 @@ export default {
 .section2 {
   position: relative;
   width: 100vw;
-  height: 500vh;
+  height: 400vh;
+
   // background: pink;
   // height: 2000px;
 
@@ -58,7 +60,6 @@ export default {
     position: sticky;
     top: 0px;
     width: 100%;
-    height: 100vh;
 
     // background-attachment: fixed;
     // height: 3000px;
@@ -68,8 +69,6 @@ export default {
       position: absolute;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
 
       img {
         position: absolute;
@@ -86,11 +85,11 @@ export default {
   .section2_title {
     position: fixed;
     top: 50%;
-    color: #fff;
     left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'NanumSquareNeoExtraBold';
+    color: #fff;
     font-size: v-bind('titleFontSize');
+    font-family: 'NanumSquareNeoExtraBold';
+    transform: translate(-50%, -50%);
     opacity: v-bind('titleOpacity');
     white-space: nowrap;
   }

@@ -1,8 +1,8 @@
 <template>
-  <Header />
-  <Section1 :scrollTop="scrollTop" />
-  <Section2 :scrollTop="scrollTop - 450" />
-  <Section3 :scrollTop="scrollTop - 500" />
+  <Header class="header" />
+  <Section1 class="section1" :scrollTop="scrollTop" />
+  <Section2 class="section2" :scrollTop="scrollTop - 700" />
+  <Section3 class="section3" :scrollTop="scrollTop - 500" />
 </template>
 
 <script>
@@ -48,4 +48,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.header {
+  opacity: 0;
+}
+
+.section1 {
+  z-index: 1;
+}
+
+.section2 {
+  z-index: 2;
+}
+
+.section3 {
+  z-index: 3;
+}
 </style>

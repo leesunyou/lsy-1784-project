@@ -1,6 +1,3 @@
-<!-- 들어오자마자 ~ 브랜드필름 보기 + 스토리 바로보기 -->
-<!-- background에 영상 -->
-
 <template>
   <div class="section1">
     <div class="video">
@@ -10,51 +7,128 @@
     </div>
     <div class="bg_filter">
       <p class="title">1784</p>
-      <!-- scale, 작아진 후 translate -->
 
       <p class="the">THE</p>
       <p class="test">TEST</p>
       <p class="bed">BED</p>
-      <!-- opacity, translate -->
 
       <div class="arrow">
         <p>&#8659;</p>
       </div>
-      <!-- 위에꺼 사라질 때 같이 opacity -->
 
       <div class="naver_img">
         <img src="@/assets/images/naver.svg" alt="naver">
       </div>
-      <!-- opacity, 아주 살짝 translate -->
 
-      <p class="desc_1">1784는 네이버의 새로운 사옥이 가진 이름이자</p>
-      <p class="desc_2">지번이며, 최초의 산업혁명이 시작된 해입니다.</p>
-      <p class="desc_3">산업혁명이 인류의 삶을 바꿔 놓았던 것처럼,</p>
-      <p class="desc_4">1784를 거대한 TESTBED 삼아 끊임없이</p>
-      <p class="desc_5">실험하고 도전하며 새로운 내일을 만들어 갑니다.</p>
-      <!-- opacity -->
+      <div class="desc">
+        <p class="desc_1 desc1">1784는 네이버의 새로운 사옥이 가진 이름이자</p>
+        <p class="desc_2 desc1">지번이며, 최초의 산업혁명이 시작된 해입니다.</p>
+        <p class="desc_3 desc2">산업혁명이 인류의 삶을 바꿔 놓았던 것처럼,</p>
+        <p class="desc_4 desc2">1784를 거대한 TESTBED 삼아 끊임없이</p>
+        <p class="desc_5 desc2">실험하고 도전하며 새로운 내일을 만들어 갑니다.</p>
 
-      <div class="brand_film">
-        <a href="#">
-          <p class="brand_title">브랜드 필름 보기</p>
-          <p class="brand_arrow">&#8680;</p>
-        </a>
+        <div class="brand_film go">
+          <a href="#">
+            <p class="brand_title">브랜드 필름 보기</p>
+            <p class="brand_arrow">&#8680;</p>
+          </a>
+        </div>
+
+        <div class="story_now go">
+          <a href="#">
+            <p class="story_title">스토리 바로 보기</p>
+            <p class="story_arrow">&#8681;</p>
+          </a>
+        </div>
       </div>
-
-      <div class="story_now">
-        <a href="#">
-          <p class="story_title">스토리 바로 보기</p>
-          <p class="story_arrow">&#8681;</p>
-        </a>
-      </div>
-      <!-- opacity -->
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  name: 'Section1',
+  computed: {
+    mainFontSize() {
+      return ((130 - Math.min(110, this.scrollTop)) * 0.6) + 'em'
+    },
 
+    mainOpacity() {
+      if (this.scrollTop < 300)
+        return Math.min(40, this.scrollTop - 200) * 0.03
+      return 1 - Math.min(60, this.scrollTop - 300) * 0.06
+    },
+
+    titleOpacity() {
+      return 1 - Math.min(60, this.scrollTop - 300) * 0.06
+    },
+
+    titleTransform() { //////////////////////////////////////////
+      return `translate(${-50 - Math.min(100, Math.max(0, (this.scrollTop - 100) * 2)) * 0.25}%,
+                        ${-50 - Math.min(100, Math.max(0, (this.scrollTop - 150) * 2)) * 1.5}%)`
+    },
+
+    theRight() { /////////////////////
+      if (this.scrollTop < 250)
+        return `${Math.min(50, Math.max(0, (this.scrollTop - 180)))}%`
+      return `${50 + Math.min(70, Math.max(0, (this.scrollTop - 250))) * (5 / 7)}%`
+    },
+
+    testRight() { //////////////////////
+      if (this.scrollTop < 250)
+        return `${100 - Math.min(50, Math.max(0, (this.scrollTop - 180)))}%`
+      return `${50 - Math.min(70, Math.max(0, (this.scrollTop - 250))) * (5 / 7)}%`
+    },
+
+    bedRight() { /////////////////////
+      if (this.scrollTop < 250)
+        return `${Math.min(50, Math.max(0, (this.scrollTop - 180)) * 1.1)}%`
+      return `${50 + Math.min(70, Math.max(0, (this.scrollTop - 250))) * (5 / 7)}%`
+    },
+
+    arrowOpacity() {
+      return 1 - Math.min(60, this.scrollTop - 300) * 0.06
+    },
+
+    naverOpacity() {
+      if (this.scrollTop < 400)
+        return Math.min(20, this.scrollTop - 380) * 0.05
+      return 1 - Math.min(20, this.scrollTop - 400) * 0.05
+    },
+
+    naverTransform() { ////////////////////
+      return 'translate(-50%,' + (200 - this.scrollTop) + 'px)'
+    },
+
+    desc1Opacity() {
+      // if (this.scrollTop < 430)
+      //   return 0
+
+      return Math.min(30, this.scrollTop - 430) * 0.03
+    },
+
+    desc2Opacity() {
+      // if (this.scrollTop < 480)
+      //   return 0
+
+      return Math.min(30, this.scrollTop - 470) * 0.03
+    },
+
+    goOpacity() {
+      // if (this.scrollTop < 530)
+      //   return 0
+
+      return Math.min(30, this.scrollTop - 510) * 0.03
+    }
+  },
+
+  props: ['scrollTop'],
+
+  data() {
+    return {
+
+    }
+  }
 }
 
 // window.addEventListener('scroll', function () {
@@ -67,15 +141,14 @@ export default {
 <style scoped lang="scss">
 .section1 {
   position: relative;
-  width: 100vw;
-  height: 450vh;
-  background: #000;
   overflow: hidden;
+  width: 100vw;
+  height: 750vh;
+  background: #000;
 
-  // position: absolute;
   // top: 0;
-  // height: 2200px;
   // width: 100%;
+  // height: 2200px;
 
   .video {
     position: fixed;
@@ -83,14 +156,12 @@ export default {
     left: 0;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    // overflow: hidden;
 
     video {
       position: relative;
       object-fit: cover;
-      // overflow: hidden;
       width: 100%;
-      // height: 100vh;
       height: 100%;
     }
   }
@@ -99,51 +170,71 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.5);
 
     .title {
+      position: fixed;
+      top: 50%;
+      left: 50%;
       color: #fff;
-      font-size: 68em;
+      font-size: v-bind('mainFontSize');
       font-family: 'NanumSquareNeoExtraBold';
       text-align: center;
-      // position: absolute;
-      // top: 0;
+      transform: v-bind('titleTransform');
+      opacity: v-bind('titleOpacity');
+
+      // transition: .5s;
       // background-color: pink;
     }
 
     .the,
     .test,
     .bed {
+      position: fixed;
+      top: 50%;
       color: #fff;
-      font-size: 14em;
+      font-size: v-bind('mainFontSize');
       font-family: 'NanumSquareNeoExtrabold';
-      transition: all .3s;
+      opacity: v-bind('mainOpacity');
+
+      // background-color: pink;
+      // transition: all .3s;
     }
 
     .the {
-      transform: translateX(83%);
+      right: v-bind('theRight');
+      transform: translate(20%, -100%);
+    }
+
+    .test {
+      right: v-bind('testRight');
+      transform: translate(70%, 0%);
     }
 
     .bed {
-      transform: translateX(88%);
+      right: v-bind('bedRight');
+      transform: translate(20%, 100%);
     }
 
     .arrow {
       position: fixed;
-      left: 50%;
       bottom: 30px;
-      // position: absolute;
-      // background-color: pink;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: v-bind('arrowOpacity');
       animation: arrow .9s ease-in-out infinite;
+
+      // background-color: pink;
 
       @keyframes arrow {
         0% {
           bottom: 30px;
         }
+
         50% {
           bottom: 23px;
         }
+
         100% {
           bottom: 30px
         }
@@ -156,113 +247,142 @@ export default {
     }
 
     .naver_img {
+      position: fixed;
+      top: 70%;
+      left: 50%;
       width: 360px;
-      margin: 0 auto;
-      margin-top: 500px;
-      margin-bottom: 500px;
-      // opacity: .3;
+      transform: v-bind('naverTransform');
+      opacity: v-bind('naverOpacity');
+
+      // transition: .5s;
       // background-color: pink;
     }
 
-    .desc_1,
-    .desc_2,
-    .desc_3,
-    .desc_4,
-    .desc_5 {
-      color: #fff;
-      font-size: 2.6em;
-      text-align: center;
-      line-height: 40px;
-      // opacity: .3;
-    }
+    .desc {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      // background-color: pink;
 
-    .desc_2 {
-      margin-bottom: 30px;
-    }
+      .desc_1,
+      .desc_2,
+      .desc_3,
+      .desc_4,
+      .desc_5 {
+        color: #fff;
+        font-size: 2.6em;
+        text-align: center;
+        line-height: 40px;
 
-    .brand_film {
-      width: 500px;
-      height: 70px;
-      margin: 0 auto;
-      margin-top: 60px;
-      border: 4px solid #fff;
-      border-radius: 35px;
-      transition: .5s;
-      // background: pink;
-
-      &:hover {
-        background: rgba(0, 0, 0, .6);
+        // opacity: .3;
       }
 
-      a {
-        display: block;
-        position: relative;
-        width: 100%;
-        height: 62px;
-        border-radius: 30px;
-        // margin-bottom: 0px;
+      .desc_2 {
+        margin-bottom: 30px;
+      }
+
+      .desc1 {
+        opacity: v-bind('desc1Opacity');
+        transition: .5s;
+      }
+
+      .desc2 {
+        opacity: v-bind('desc2Opacity');
+        transition: .5s;
+      }
+
+      .go {
+        opacity: v-bind('goOpacity');
+        transition: .5s;
+      }
+
+      .brand_film {
+        width: 500px;
+        height: 70px;
+        margin: 0 auto;
+        margin-top: 60px;
+        border: 4px solid #fff;
+        border-radius: 35px;
+        transition: .5s;
+
         // background: pink;
 
-        p {
-          display: inline-block;
+        &:hover {
+          background: rgba(0, 0, 0, .6);
+        }
+
+        a {
+          display: block;
+          position: relative;
+          width: 100%;
+          height: 62px;
+          border-radius: 30px;
+
+          // background: pink;
+
+          p {
+            display: inline-block;
+            color: #fff;
+            font-size: 2.2em;
+          }
+
+          .brand_title {
+            margin-top: 20px;
+            margin-left: 35px;
+          }
+
+          .brand_arrow {
+            margin-left: 250px;
+
+            // background-color: pink;
+          }
+        }
+      }
+
+      .story_now {
+        width: 500px;
+        height: 70px;
+        margin: 0 auto;
+        margin-top: 30px;
+        border: 1px solid #fff;
+        border-radius: 35px;
+        background: #fff;
+        transition: .4s;
+
+        &:hover {
+          background: #000;
+        }
+
+        &:hover p {
           color: #fff;
-          font-size: 2.2em;
         }
 
-        .brand_title {
-          margin-top: 20px;
-          margin-left: 35px;
-        }
+        a {
+          display: block;
+          position: relative;
+          width: 100%;
+          height: 62px;
+          border-radius: 30px;
 
-        .brand_arrow {
-          margin-left: 250px;
-          // transform: translateY(0px);
-          // background-color: pink;
-        }
-      }
-    }
+          // margin-bottom: ;
 
-    .story_now {
-      width: 500px;
-      height: 70px;
-      margin: 0 auto;
-      margin-top: 30px;
-      border: 1px solid #fff;
-      border-radius: 35px;
-      background: #fff;
-      transition: .4s;
+          p {
+            display: inline-block;
+            color: #000;
+            font-size: 2.2em;
+            transition: .4s;
+          }
 
-      &:hover {
-        background: #000;
-      }
+          .story_title {
+            margin-top: 23px;
+            margin-left: 35px;
+          }
 
-      &:hover p {
-        color: #fff;
-      }
-
-      a {
-        display: block;
-        position: relative;
-        width: 100%;
-        height: 62px;
-        border-radius: 30px;
-        // margin-bottom: ;
-
-        p {
-          display: inline-block;
-          color: #000;
-          font-size: 2.2em;
-          transition: .4s;
-        }
-
-        .story_title {
-          margin-top: 23px;
-          margin-left: 35px;
-        }
-
-        .story_arrow {
-          margin-left: 250px;
-          transform: translateY(3px);
+          .story_arrow {
+            margin-left: 250px;
+            transform: translateY(3px);
+          }
         }
       }
     }
