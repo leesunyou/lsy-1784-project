@@ -156,6 +156,7 @@ export default {
     left: 0;
     width: 100vw;
     height: 100vh;
+
     // overflow: hidden;
 
     video {
@@ -284,12 +285,14 @@ export default {
 
       .desc1 {
         opacity: v-bind('desc1Opacity');
-        transition: .5s;
+
+        // transition: .5s;
       }
 
       .desc2 {
         opacity: v-bind('desc2Opacity');
-        transition: .5s;
+
+        // transition: .5s;
       }
 
       .go {
@@ -304,7 +307,7 @@ export default {
         margin-top: 60px;
         border: 4px solid #fff;
         border-radius: 35px;
-        transition: .5s;
+        // transition: .5s;
 
         // background: pink;
 
@@ -348,7 +351,7 @@ export default {
         border: 1px solid #fff;
         border-radius: 35px;
         background: #fff;
-        transition: .4s;
+        // transition: .4s;
 
         &:hover {
           background: #000;

@@ -13,6 +13,8 @@ import Section2 from './sections/Section2.vue';
 import Section3 from './sections/Section3.vue';
 
 export default {
+  name: 'Main',
+
   components: {
     Header,
     Section1,
@@ -23,6 +25,13 @@ export default {
   mounted () {
     window.scrollTo(0, 0);
     document.addEventListener('scroll', this.onScroll);
+  },
+
+  computed: {
+    headerOpacity () {
+      if (this.scrollTop < 690)
+      return 0
+    }
   },
 
   beforeUnmount () {
@@ -49,7 +58,8 @@ export default {
 
 <style scoped lang="scss">
 .header {
-  opacity: 0;
+  transition: .3s;
+  opacity: v-bind('headerOpacity');
 }
 
 .section1 {

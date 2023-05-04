@@ -11,6 +11,11 @@
       <p class="desc2">도전 속에 일상을 변화시킬 새로움을 만드는 것,</p>
       <p class="desc2">이것이 우리가 테크 컨버전스에 집중하는 이유입니다.</p>
     </div>
+    <div class="video_wrap">
+      <div class="video">
+        <img src="" alt="">
+      </div>
+    </div>
   </section>
 </template>
 
@@ -18,13 +23,10 @@
 export default {
   name: 'Section3',
   computed: {
-    bgColor() {
-      return `rgba(0, 0, 0, ${this.scrollTop * 0.0016})`
-    },
 
-    // bgOpacity () {
-    //   return Math.min(30, this.scrollTop - 200) * 0.1
-    // },
+    bgOpacity() {
+      return Math.min(60, this.scrollTop - 450) * 0.02
+    },
 
     titleOpacity() {
       if (this.scrollTop < 550)
@@ -60,10 +62,10 @@ export default {
   position: relative;
   width: 100vw;
   height: 600vh;
-  margin-top: -100vh;
-  // background: #000;
-  background: v-bind('bgColor');
-  // opacity: v-bind('bgOpacity');
+  margin-top: -200vh;
+  background: #000;
+  opacity: v-bind('bgOpacity');
+
   // opacity: .2;
 
   .title {
