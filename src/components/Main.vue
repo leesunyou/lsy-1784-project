@@ -29,7 +29,7 @@ export default {
 
   computed: {
     headerOpacity () {
-      if (this.scrollTop < 690)
+      if (this.scrollTop < 688)
       return 0
     }
   },
@@ -62,15 +62,15 @@ export default {
   opacity: v-bind('headerOpacity');
 }
 
-.section1 {
-  z-index: 1;
-}
+// .section1 {
+//   z-index: 1;
+// }
 
-.section2 {
-  z-index: 2;
-}
+// .section2 {
+//   z-index: 2;
+// }
 
-.section3 {
-  z-index: 3;
-}
+// .section3 {
+//   z-index: 3;
+// }
 </style>

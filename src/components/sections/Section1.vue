@@ -307,9 +307,6 @@ export default {
         margin-top: 60px;
         border: 4px solid #fff;
         border-radius: 35px;
-        // transition: .5s;
-
-        // background: pink;
 
         &:hover {
           background: rgba(0, 0, 0, .6);

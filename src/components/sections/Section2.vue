@@ -25,7 +25,8 @@ export default {
 
   computed: {
     titleFontSize() {
-      return (10 + Math.min(100, Math.max(0, this.scrollTop - 200))) + 'em'
+      return `${10 + Math.min(100, Math.max(0, this.scrollTop-200))}em`
+      // return (10 + Math.min(100, Math.max(0, this.scrollTop - 200))) + 'em'
     },
 
     titleOpacity() {
