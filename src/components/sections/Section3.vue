@@ -15,8 +15,8 @@
       <div class="video">
         <!-- img :src에 require 넣지 않으면 이미지가 나타나지 않음 -->
         <img v-for="item in 121"
-          :key="item"
-          :src="require(`@/assets/images/section3/${item.toString()}.jpg`)"
+        :key="item"
+        :src="require(`@/assets/images/section3/${item.toString()}.jpg`)"
         >
       </div>
     </div>
@@ -50,21 +50,27 @@ export default {
       return `translate(-50%, -${this.scrollTop - 600}%)`
     },
 
+    imgTransform() {
+      return `translate(-50%, calc(-50% + ${(25 - Math.min(25, Math.max(0, (this.scrollTop - 350)))) * 0.5}%))`
+
+      // return `translate(-50%, -${this.scrollTop - 600}%)`
+
+      // 일단 x -50%, y -100%
+    },
+
     imgWidth() {
-      return `${45 + Math.min(0, Math.max(50, (this.scrollTop - 200)))}%`
+      // return `${Math.max(0, Math.max(45, (this.scrollTop - 850) * .399))}%`
+
+      return `${Math.min(100, Math.max(80, (this.scrollTop - 710)) * .5)}%`
+
       // return `700px`
       // 원래 700px, 점점 100%
     },
 
     imgHeight() {
-      // return (Math.min(0, Math.max(100, this.scrollTop - 600))) + '%'
-      return `${Math.min(10, Math.max(500, this.scrollTop - 600))}%`
-      // return `100px`
-      // 원래 0, 점점 100
-    },
+      return `${Math.min(100, Math.max(0, (this.scrollTop - 710)) * .5)}%`
 
-    imgTransform() {
-      return `translate(-50%, 100%)`
+      // 원래 0, 점점 100
     }
   },
 
@@ -76,6 +82,10 @@ export default {
     }
   }
 }
+
+// window.addEventListener('scroll', function () {
+//   console.log(window.scrollY)
+// });
 </script>
 
 <style scoped lang="scss">
@@ -125,13 +135,15 @@ export default {
     width: v-bind('imgWidth');
     height: v-bind('imgHeight');
     transform: v-bind('imgTransform');
-    background: white;
+    // background: white;
 
 
     .video {
       position: absolute;
       top: 0;
+      right: 0;
       left: 0;
+      bottom: 0;
 
       img {
         position: absolute;
@@ -145,4 +157,4 @@ export default {
     }
   }
 }
-</style>
+</style>​
