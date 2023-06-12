@@ -14,9 +14,10 @@
     <div class="video_wrap">
       <div class="video">
         <!-- img :src에 require 넣지 않으면 이미지가 나타나지 않음 -->
-        <img v-for="item in 121"
+        <img v-for="item in 500"
         :key="item"
-        :src="require(`@/assets/images/section3/${item.toString()}.jpg`)"
+        :src="require(`@/assets/images/section3/0${item.toString().padStart(3, '0')}.jpg`)"
+        :class="[`img_${item}`, { active: item === imgFrame }]"
         >
       </div>
     </div>
@@ -71,6 +72,10 @@ export default {
       return `${Math.min(100, Math.max(0, (this.scrollTop - 710)) * .5)}%`
 
       // 원래 0, 점점 100
+    },
+
+    imgFrame() {
+      return Math.ceil(Math.min(500, Math.max(1, (this.scrollTop - 930))))
     }
   },
 
@@ -92,7 +97,7 @@ export default {
 .section3 {
   position: relative;
   width: 100vw;
-  height: 900vh;
+  height: 1280vh;
   margin-top: -200vh;
   background: #000;
   opacity: v-bind('bgOpacity');
@@ -153,6 +158,11 @@ export default {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        opacity: 0;
+
+        &.active {
+          opacity: 1;
+        }
       }
     }
   }
