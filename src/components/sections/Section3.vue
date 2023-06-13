@@ -97,7 +97,7 @@ export default {
 .section3 {
   position: relative;
   width: 100vw;
-  height: 1280vh;
+  height: 880vh;
   margin-top: -200vh;
   background: #000;
   opacity: v-bind('bgOpacity');
