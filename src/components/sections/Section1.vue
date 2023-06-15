@@ -49,6 +49,11 @@
 export default {
   name: 'Section1',
   computed: {
+    videoDisplay() {
+      if (this.scrollTop > 900)
+      return `none`
+    },
+
     mainFontSize() {
       return ((130 - Math.min(110, this.scrollTop)) * 0.6) + 'em'
     },
@@ -164,6 +169,7 @@ export default {
       object-fit: cover;
       width: 100%;
       height: 100%;
+      display: v-bind('videoDisplay');
     }
   }
 

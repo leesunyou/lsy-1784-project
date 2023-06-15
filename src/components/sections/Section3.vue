@@ -76,6 +76,11 @@ export default {
 
     imgFrame() {
       return Math.ceil(Math.min(500, Math.max(1, (this.scrollTop - 930))))
+    },
+
+    imgDisplay() {
+      if (this.scrollTop > 2000)
+      return `none`
     }
   },
 
@@ -151,6 +156,7 @@ export default {
       bottom: 0;
 
       img {
+        display: v-bind('imgDisplay');
         position: absolute;
         top: 50%;
         left: 50%;

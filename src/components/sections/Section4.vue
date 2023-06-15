@@ -1,138 +1,152 @@
 <template>
   <section class="section4">
     <div class="section4_bg">
-      <div class="roll">
+      <!-- <div class="roll">
         <div v-for="item in item" class="textbox">
-          <p class="text">{{ text }}</p>
-          <p class="arrow">{{ arrow }}</p>
+          <p class="text">{{ item.text }}</p>
+          <p class="arrow">{{ item.arrow }}</p>
         </div>
-      </div>
+      </div> -->
+      <div class="container">
+        <div class="wrapper">
+          <div class="tech wrap">
+            <h2 class="main_title white">TECH</h2>
 
-      <div class="tech">
-        <h2 class="main_title">TECH</h2>
+            <div class="cont cont_1">
+              <div class="item">
+                <p class="sub_title white">로봇과 함께하는 일상</p>
+                <p class="desc_1 white">
+                  로봇이 우리 삶에 자연스럽게 녹아드는 세상을 준비합니다.
+                  <br>
+                  이를 앞당길 거대한 실험이 1784에서 시작되었습니다.
+                  <br>
+                  네이버의 로보틱스, 자율주행, AI, 5G, 클라우드 기술과
+                  <br>
+                  혁신적 인프라들이 하나로 융합됩니다.
+                </p>
+                <p class="desc_2">
+                  세계 최초 로봇 친화형 건물 - 스마트도시협회 인증 2022
+                </p>
+                <div class="main_img">
+                  <img src="@/assets/images/section4/tech_main_1.jpeg" alt="naver1784">
+                </div>
+              </div>
 
-        <div class="tech_cont">
-          <div class="tech_main">
-            <p class="sub_title">로봇과 함께하는 일상</p>
-            <p class="desc_1">
-              로봇이 우리 삶에 자연스럽게 녹아드는 세상을 준비합니다.
-              <br>
-              이를 앞당길 거대한 실험이 1784에서 시작되었습니다.
-              <br>
-              네이버의 로보틱스, 자율주행, AI, 5G, 클라우드 기술과
-              <br>
-              혁신적 인프라들이 하나로 융합됩니다.
-            </p>
-            <p class="desc_2">
-              세계 최초 로봇 친화형 건물 - 스마트도시협회 인증 2022
-            </p>
-            <div class="tech_main_img">
-              <img src="@/assets/images/section4/tech_main_1.jpeg" alt="naver1784">
+              <div class="box" v-for="t_box1 in tech_box1" :key="t_box1">
+                <img :src="t_box1.img" alt="tech이미지">
+                <div class="text_box">
+                  <p class="box_name">{{ t_box1.name }}</p>
+                  <p class="box_desc" v-html="t_box1.desc"></p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="tech_box" v-for="t_box1 in tech_box1" :key="t_box1">
-            <img :src="t_box1.img" alt="tech이미지">
-            <div class="text_box">
-              <p class="box_name">{{ t_box1.name }}</p>
-              <p class="box_desc" v-html="t_box1.desc"></p>
+          <div class="tech_2 wrap">
+            <div class="cont cont_2">
+              <div class="item">
+                <p class="sub_title white">일하는 모습의 미래</p>
+                <p class="desc_1 white">
+                  1784에서는 생활하고 일하는 방식이 새롭게 설계됩니다.
+                  <br>
+                  건물 곳곳에 스며든 네이버의 다양한 선행 기술이 더 나은
+                  <br>
+                  업무 환경을 만들고 그 안에서 일하는 모습은
+                  <br>
+                  미래의 새로운 기준이 됩니다.
+                </p>
+                <div class="main_img">
+                  <img src="@/assets/images/section4/tech_main_2.jpeg" alt="naver1784">
+                </div>
+              </div>
+
+              <div class="box" v-for="t_box2 in tech_box2" :key="t_box2">
+                <img :src="t_box2.img" alt="tech이미지">
+                <div class="text_box">
+                  <p class="box_name">{{ t_box2.name }}</p>
+                  <p class="box_desc" v-html="t_box2.desc"></p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="tech_cont">
-          <p class="sub_title">일하는 모습의 미래</p>
-          <p class="desc_1">
-            1784에서는 생활하고 일하는 방식이 새롭게 설계됩니다.
-            <br>
-            건물 곳곳에 스며든 네이버의 다양한 선행 기술이 더 나은
-            <br>
-            업무 환경을 만들고 그 안에서 일하는 모습은
-            <br>
-            미래의 새로운 기준이 됩니다.
-          </p>
-          <div class="tech_main_img">
-            <img src="@/assets/images/section4/tech_main_2.jpeg" alt="naver1784">
-          </div>
+          <div class="new_normal wrap">
+            <h2 class="main_title black">NEW NORMAL</h2>
 
-          <div class="tech_box" v-for="t_box2 in tech_box2" :key="t_box2">
-            <img :src="t_box2.img" alt="tech이미지">
-            <div class="text_box">
-              <p class="box_name">{{ t_box2.name }}</p>
-              <p class="box_desc" v-html="t_box2.desc"></p>
+            <div class="cont cont_3">
+              <div class="item">
+                <p class="sub_title black">설계부터 다르게</p>
+                <p class="desc_1 black">
+                  지속 가능하며 표준화된 시스템으로, 팬데믹 이후에도
+                  <br>
+                  모두가 안전하게 일할 수 있는 공간을 만들어 갑니다.
+                </p>
+                <div class="main_img">
+                  <img src="@/assets/images/section4/new_main_1.jpeg" alt="naver1784">
+                </div>
+              </div>
+
+              <div class="box" v-for="n_box1 in new_box1" :key="n_box1">
+                <img :src="n_box1.img" alt="new이미지">
+                <div class="text_box">
+                  <p class="box_name">{{ n_box1.name }}</p>
+                  <p class="box_desc" v-html="n_box1.desc"></p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-      </div>
+          <div class="eco wrap">
+            <h2 class="main_title black">ECO</h2>
 
-      <div class="new_normal">
-        <h2 class="main_title">NEW NORMAL</h2>
+            <div class="cont cont_4">
+              <div class="item">
+                <p class="sub_title black">건물 자체가 친환경 시스템</p>
+                <p class="desc_1 black">
+                  자연 에너지를 이용하는 것에 그치지 않고,
+                  <br>
+                  에너지 절감까지 가능한 친환경 인프라 시스템을 만들었습니다.
+                </p>
+                <div class="main_img">
+                  <img src="@/assets/images/section4/eco_main_1.jpeg" alt="naver1784">
+                </div>
+              </div>
 
-        <div class="new_cont">
-          <p class="sub_title">설계부터 다르게</p>
-          <p class="desc_1">
-            지속 가능하며 표준화된 시스템으로, 팬데믹 이후에도
-            <br>
-            모두가 안전하게 일할 수 있는 공간을 만들어 갑니다.
-          </p>
-          <div class="new_main_img">
-            <img src="@/assets/images/section4/new_main_1.jpeg" alt="naver1784">
-          </div>
-
-          <div class="new_box" v-for="n_box1 in new_box1" :key="n_box1">
-            <img :src="n_box1.img" alt="new이미지">
-            <div class="text_box">
-              <p class="box_name">{{ n_box1.name }}</p>
-              <p class="box_desc" v-html="n_box1.desc"></p>
+              <div class="box" v-for="e_box1 in eco_box1" :key="e_box1">
+                <img :src="e_box1.img" alt="eco이미지">
+                <div class="text_box">
+                  <p class="box_name">{{ e_box1.name }}</p>
+                  <p class="box_desc" v-html="e_box1.desc"></p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="eco">
-        <h2 class="main_title">ECO</h2>
+          <div class="with wrap">
+            <h2 class="main_title black">WITH</h2>
 
-        <div class="eco_cont">
-          <p class="sub_title">건물 자체가 친환경 시스템</p>
-          <p class="desc_1">
-            자연 에너지를 이용하는 것에 그치지 않고,
-            <br>
-            에너지 절감까지 가능한 친환경 인프라 시스템을 만들었습니다.
-          </p>
-          <div class="eco_main_img">
-            <img src="@/assets/images/section4/eco_main_1.jpeg" alt="naver1784">
-          </div>
+            <div class="cont cont_5">
+              <div class="item">
+                <p class="sub_title black">함께 모여 만드는 미래</p>
+                <p class="desc_1 black">
+                  하나의 공간을 중심으로 여러 기술과 아이디어가 모이고,
+                  <br>
+                  이를 연결해 새로운 미래를 만드는 것. 1784로부터
+                  <br>
+                  시작됩니다.
+                </p>
+                <div class="main_img">
+                  <img src="@/assets/images/section4/with_main_1.jpeg" alt="naver1784">
+                </div>
+              </div>
 
-          <div class="eco_box" v-for="e_box1 in eco_box1" :key="e_box1">
-            <img :src="e_box1.img" alt="eco이미지">
-            <div class="text_box">
-              <p class="box_name">{{ e_box1.name }}</p>
-              <p class="box_desc" v-html="e_box1.desc"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="with">
-        <h2 class="main_title">ECO</h2>
-
-        <div class="with_cont">
-          <p class="sub_title">건물 자체가 친환경 시스템</p>
-          <p class="desc_1">
-            자연 에너지를 이용하는 것에 그치지 않고,
-            <br>
-            에너지 절감까지 가능한 친환경 인프라 시스템을 만들었습니다.
-          </p>
-          <div class="with_main_img">
-            <img src="@/assets/images/section4/with_main_1.jpeg" alt="naver1784">
-          </div>
-
-          <div class="with_box" v-for="w_box1 in with_box1" :key="w_box1">
-            <img :src="w_box1.img" alt="with_이미지">
-            <div class="text_box">
-              <p class="box_name">{{ w_box1.name }}</p>
-              <p class="box_desc" v-html="w_box1.desc"></p>
+              <div class="box" v-for="w_box1 in with_box1" :key="w_box1">
+                <img :src="w_box1.img" alt="with_이미지">
+                <div class="text_box">
+                  <p class="box_name">{{ w_box1.name }}</p>
+                  <p class="box_desc" v-html="w_box1.desc"></p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -143,8 +157,41 @@
 
 <script>
 export default {
+  name: 'Section4',
+  computed: {
+    bgColor() {
+      if (this.scrollTop < 1920) {
+        return `#000`
+      }
+      else if (this.scrollTop < 1980) {
+        return `#999`
+      }
+      else {
+        return `#fff`
+      }
+    },
+
+    wrapperTransform() {
+      // return `translateX(-${3700}px)`
+      
+      // return `translateX(-${this.scrollTop * 1.2}px)`
+      return `translateX(-${Math.max(0, (this.scrollTop - 1700) * 9)}px)`
+    }
+
+
+  },
+
+  props: ['scrollTop'],
+
   data() {
     return {
+      item: [
+        {
+          text: 'TECH',
+          arrow: '&#8594'
+        }
+      ],
+
       tech_box1: [
         {
           img: require("@/assets/images/section4/tech_1_1.jpeg"),
@@ -248,131 +295,175 @@ export default {
   }
 }
 
+// window.addEventListener('scroll', function () {
+//   console.log(window.scrollY)
+// });
 </script>
 
 <style scoped lang="scss">
 .section4 {
   position: relative;
   top: 3000px;
-  width: 100%;
-  height: 2000vh;
-  background: pink;
+  width: 540.5vw;
+  height: 1000vh;
+  background: v-bind('bgColor');
+  transition: .7s;
 
   .section4_bg {
     position: sticky;
     top: 0px;
     width: 100%;
-    // height: 200vh;
+    overflow: hidden;
 
-    .main_title,
-    .sub_title,
-    .desc_1 {
+    .wrapper {
+      // display: inline-block;
+      display: flex;
+      height: 100vh;
+      width: 600vw;
+      // transform: translateX(-100px);
+      transform: v-bind('wrapperTransform');
+
+      .tech_2 {
+        transform: translateX(-430px);
+      }
+
+      .new_normal {
+        margin-left: -500px;
+      }
+
+      .eco {
+        transform: translateX(-80px);
+      }
+
+      .with {
+        transform: translateX(-510px);
+      }
+
+      .wrap {
+        // overflow: hidden;
+        position: relative;
+        // display: inline-block;
+        display: flex;
+        // background-color: pink;
+        width: 100%;
+
+        .main_title {
+          padding-top: 180px;
+          margin-left: 85px;
+          margin-bottom: 40px;
+          // background-color: pink;
+          font-size: 6.5em;
+          font-family: 'NanumSquareNeoHeavy';
+        }
+
+        .cont {
+          display: flex;
+          flex-wrap: wrap;
+          // background-color: yellow;
+          // margin-right: 30px;
+          // width: 2000px;
+          height: 446px;
+          position: absolute;
+          bottom: 100px;
+
+          .item {
+            position: relative;
+            width: 350px;
+            margin-right: 140px;
+            // display: inline-block;
+            // background-color: pink;
+            margin-left: 85px;
+
+            .sub_title {
+              margin-bottom: 15px;
+              font-size: 3em;
+              font-family: 'NanumSquareNeoExtraBold';
+            }
+
+            .desc_1 {
+              font-size: 1.3em;
+              line-height: 21px;
+              margin-bottom: 15px;
+            }
+
+            .desc_2 {
+              font-size: 1.3em;
+              color: #ccc;
+              margin-bottom: 30px;
+            }
+
+            .main_img {
+              position: absolute;
+              bottom: 0px;
+
+              img {
+                width: 350px;
+              }
+            }
+          }
+
+          .box {
+            position: relative;
+            // background: pink;
+            width: 320px;
+            // height: 446px;
+            // display: inline-block;
+            // display: flex;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-right: 30px;
+
+            img {
+              width: 100%;
+              transition: .4s;
+
+              &:hover {
+                transform: scale(1.03);
+              }
+            }
+
+            .text_box {
+              // width: 320px;
+              width: 100%;
+              height: 130px;
+              position: absolute;
+              bottom: 0;
+              background: rgba(0, 0, 0, .2);
+              backdrop-filter: saturate(180%) blur(20px);
+
+              .box_name,
+              .box_desc {
+                color: #fff;
+                // 항상 #fff
+              }
+
+              .box_name {
+                font-size: 1.6em;
+                text-align: center;
+                padding-top: 30px;
+                margin-bottom: 15px;
+                // background-color: pink;
+              }
+
+              .box_desc {
+                font-size: 1.2em;
+                text-align: center;
+                line-height: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .white {
       color: #fff;
       // color - if scrollTop 해서 #000으로 색상 변경
     }
 
-    .main_title {
-      padding-top: 180px;
-      margin-left: 85px;
-      margin-bottom: 40px;
-      // background-color: pink;
-      font-size: 6.5em;
-      font-family: 'NanumSquareNeoHeavy';
-    }
-
-    .sub_title {
-      margin-bottom: 15px;
-      font-size: 3em;
-      font-family: 'NanumSquareNeoExtraBold';
-    }
-
-    .desc_1 {
-      font-size: 1.3em;
-      line-height: 20px;
-      margin-bottom: 10px;
-    }
-
-    .desc_2 {
-      font-size: 1.3em;
-      color: #ccc;
-      margin-bottom: 30px;
-    }
-
-    .text_box {
-      width: 320px;
-      height: 150px;
-      position: absolute;
-      bottom: 0;
-      background: rgba(0, 0, 0, .1);
-      backdrop-filter: saturate(180%) blur(20px);
-
-      .box_name,
-      .box_desc {
-        color: #fff;
-        // 항상 #fff
-      }
-    }
-
-    .box_name {
-      font-size: 1.6em;
-      text-align: center;
-    }
-
-    .box_desc {
-      font-size: 1.2em;
-      text-align: center;
-    }
-
-    .roll {
-
-      .textbox {
-
-        .text {}
-
-        .arrow {}
-      }
-    }
-
-    .tech {
-      // background: #000;
-
-      .tech_cont {
-
-        .tech_main {
-          width: 320px;
-          margin-right: 170px;
-          display: inline-block;
-          // background-color: pink;
-          margin-left: 85px;
-
-          .tech_main_img {
-
-            img {
-              width: 320px;
-            }
-          }
-        }
-
-        .tech_box {
-          position: relative;
-          background: gray;
-          width: 320px;
-          height: 450px;
-          display: inline-block;
-          border-radius: 20px;
-          overflow: hidden;
-          margin-right: 30px;
-
-          img {
-            width: 100%;
-          }
-        }
-      }
+    .black {
+      color: #000;
     }
   }
-
-
-
-
 }
 </style>
