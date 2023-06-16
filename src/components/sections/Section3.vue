@@ -15,10 +15,9 @@
       <div class="video">
         <!-- img :src에 require 넣지 않으면 이미지가 나타나지 않음 -->
         <img v-for="item in 500"
-        :key="item"
-        :src="require(`@/assets/images/section3/0${item.toString().padStart(3, '0')}.jpg`)"
-        :class="[`img_${item}`, { active: item === imgFrame }]"
-        >
+          :key="item"
+          :src="require(`@/assets/images/section3/0${item.toString().padStart(3, '0')}.jpg`)"
+          :class="[`img_${item}`, { active: item === imgFrame }]">
       </div>
     </div>
   </section>
@@ -53,25 +52,14 @@ export default {
 
     imgTransform() {
       return `translate(-50%, calc(-50% + ${(25 - Math.min(25, Math.max(0, (this.scrollTop - 350)))) * 0.5}%))`
-
-      // return `translate(-50%, -${this.scrollTop - 600}%)`
-
-      // 일단 x -50%, y -100%
     },
 
     imgWidth() {
-      // return `${Math.max(0, Math.max(45, (this.scrollTop - 850) * .399))}%`
-
       return `${Math.min(100, Math.max(80, (this.scrollTop - 710)) * .5)}%`
-
-      // return `700px`
-      // 원래 700px, 점점 100%
     },
 
     imgHeight() {
       return `${Math.min(100, Math.max(0, (this.scrollTop - 710)) * .5)}%`
-
-      // 원래 0, 점점 100
     },
 
     imgFrame() {
@@ -80,22 +68,12 @@ export default {
 
     imgDisplay() {
       if (this.scrollTop > 2000)
-      return `none`
+        return `none`
     }
   },
 
-  props: ['scrollTop'],
-
-  data() {
-    return {
-
-    }
-  }
+  props: ['scrollTop']
 }
-
-// window.addEventListener('scroll', function () {
-//   console.log(window.scrollY)
-// });
 </script>
 
 <style scoped lang="scss">
@@ -107,17 +85,15 @@ export default {
   background: #000;
   opacity: v-bind('bgOpacity');
 
-  // opacity: .2;
-
   .title {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: v-bind('titleTransform');
-    text-align: center;
     color: #fff;
     font-size: 9em;
+    text-align: center;
     font-family: 'NanumSquareNeoExtraBold';
+    transform: v-bind('titleTransform');
     opacity: v-bind('titleOpacity');
     white-space: nowrap;
   }
@@ -126,11 +102,11 @@ export default {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: v-bind('descTransform');
     color: #fff;
     font-size: 2.6em;
-    line-height: 40px;
     text-align: center;
+    line-height: 40px;
+    transform: v-bind('descTransform');
     opacity: v-bind('descOpacity');
 
     .desc1:nth-child(2) {
@@ -145,26 +121,24 @@ export default {
     width: v-bind('imgWidth');
     height: v-bind('imgHeight');
     transform: v-bind('imgTransform');
-    // background: white;
-
 
     .video {
       position: absolute;
       top: 0;
       right: 0;
-      left: 0;
       bottom: 0;
+      left: 0;
 
       img {
         display: v-bind('imgDisplay');
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        transform: translate(-50%, -50%);
         opacity: 0;
+        object-fit: cover;
 
         &.active {
           opacity: 1;
@@ -173,4 +147,4 @@ export default {
     }
   }
 }
-</style>​
+</style>

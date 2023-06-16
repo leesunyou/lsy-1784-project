@@ -19,9 +19,11 @@
     </div>
 
     <div class="container">
-      <a href="#">
+      <a href="#" onclick="return false">
         <div class="box box1">
-          <img src="@/assets/images/section5/img1.jpeg" alt="듣다보면 똑똑해지는 라이프">
+          <div class="img_box">
+            <img src="@/assets/images/section5/img1.jpeg" alt="듣다보면 똑똑해지는 라이프">
+          </div>
           <div class="text_box">
             <p class="name">듣다보면 똑똑해지는 라이프</p>
             <p class="desc">SF 영화 속 미래기술</p>
@@ -29,9 +31,11 @@
         </div>
       </a>
 
-      <a href="#">
+      <a href="#" onclick="return false">
         <div class="box box2">
-          <img src="@/assets/images/section5/img2.jpeg" alt="조승연의 탐구생활">
+          <div class="img_box">
+            <img src="@/assets/images/section5/img2.jpeg" alt="조승연의 탐구생활">
+          </div>
           <div class="text_box">
             <p class="name">조승연의 탐구생활</p>
             <p class="desc">창의적인 공간의 조건</p>
@@ -39,9 +43,11 @@
         </div>
       </a>
 
-      <a href="#">
+      <a href="#" onclick="return false">
         <div class="box box3">
-          <img src="@/assets/images/section5/img3.jpeg" alt="김지윤의 지식 PLAY">
+          <div class="img_box">
+            <img src="@/assets/images/section5/img3.jpeg" alt="김지윤의 지식 PLAY">
+          </div>
           <div class="text_box">
             <p class="name">김지윤의 지식 PLAY</p>
             <p class="desc">로봇 석학이 말하는 1784</p>
@@ -49,9 +55,11 @@
         </div>
       </a>
 
-      <a href="#">
+      <a href="#" onclick="return false">
         <div class="box box4">
-          <img src="@/assets/images/section5/img4.png" alt="1784 STORY">
+          <div class="img_box">
+            <img src="@/assets/images/section5/img4.png" alt="1784 STORY">
+          </div>
           <div class="text_box">
             <p class="name">1784 STORY</p>
             <p class="desc">FaceSign의 독보적 기술력</p>
@@ -59,9 +67,11 @@
         </div>
       </a>
 
-      <a href="#">
+      <a href="#" onclick="return false">
         <div class="box box5">
-          <img src="@/assets/images/section5/img5.jpeg" alt="1784 STORY">
+          <div class="img_box">
+            <img src="@/assets/images/section5/img5.jpeg" alt="1784 STORY">
+          </div>
           <div class="text_box">
             <p class="name">1784 STORY</p>
             <p class="desc">1784에 5G를 설치한 이유</p>
@@ -69,9 +79,11 @@
         </div>
       </a>
 
-      <a href="#">
+      <a href="#" onclick="return false">
         <div class="box box6">
-          <img src="@/assets/images/section5/img6.jpeg" alt="네이버 디자인 콜로키움">
+          <div class="img_box">
+            <img src="@/assets/images/section5/img6.jpeg" alt="네이버 디자인 콜로키움">
+          </div>
           <div class="text_box">
             <p class="name">네이버 디자인 콜로키움 '22</p>
             <p class="desc">인간과 기술이 공존하는 일터</p>
@@ -110,39 +122,34 @@ export default {
 .section5 {
   position: relative;
   width: 100%;
-  height: 2000px;
+  margin-top: 3000px;
   background: #fff;
-  margin-top: 348.7vh;
 
   .main {
     position: relative;
     margin-bottom: 60px;
 
     .title {
+      display: inline-block;
       padding: 12% 5% 0px 15%;
-      // padding: 200px 100px 0px 200px;
       font-size: 6em;
       line-height: 70px;
-      // background-color: yellow;
-      display: inline-block;
       font-family: 'NanumSquareNeoExtraBold';
     }
 
     .sub {
-      font-family: 'NanumSquareNeoExtraBold';
       display: inline-block;
-      line-height: 34px;
-      font-size: 2.6em;
-      // background-color: green;
       position: absolute;
       bottom: 0;
+      font-size: 2.6em;
+      line-height: 34px;
+      font-family: 'NanumSquareNeoExtraBold';
     }
   }
 
   .container {
-    // background-color: green;
-    max-width: 70%;
     margin: 0 auto;
+    max-width: 70%;
 
     a {
 
@@ -160,33 +167,42 @@ export default {
       }
 
       .box {
-        width: calc((100% - 60px) / 3);
-        background-color: yellow;
         display: inline-block;
-        border-radius: 18px;
         overflow: hidden;
+        width: calc((100% - 60px) / 3);
+        border-radius: 18px;
         box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
 
-        img {
+        .img_box {
           width: 100%;
+          height: calc(100% - 120px);
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            transition: .3s;
+
+            &:hover {
+              transform: scale(1.02);
+            }
+          }
         }
 
         .text_box {
-          background: #fff;
           height: 120px;
+          background: #fff;
 
           .name {
-            font-size: 2.1em;
-            font-family: 'NanumSquareNeoExtraBold';
-            text-align: center;
             padding-top: 30px;
+            font-size: 2.1em;
+            text-align: center;
+            font-family: 'NanumSquareNeoExtraBold';
           }
 
           .desc {
+            margin-top: 10px;
             font-size: 1.8em;
             text-align: center;
-            margin-top: 10px;
-            // background-color: pink;
           }
         }
       }
@@ -195,14 +211,12 @@ export default {
 
   .contact {
     margin-top: 200px;
-    // background: pink;
 
     .con_title {
+      display: inline-block;
+      padding: 100px 100px 0px 100px;
       font-size: 10em;
       font-family: 'NanumSquareNeoExtraBold';
-      padding: 100px 100px 0px 100px;
-      display: inline-block;
-      // background-color: green;
     }
 
     .add_container {
@@ -210,16 +224,14 @@ export default {
       margin-bottom: 50px;
 
       .add_box {
-        // background-color: yellow;
+        display: inline-block;
         position: absolute;
         right: 100px;
         bottom: 20px;
-        display: inline-block;
 
         .naver1784 {
-          // background-color: salmon;
-          margin-bottom: 20px;
           display: flex;
+          margin-bottom: 20px;
 
           .naver1784_name {
             margin-right: 50px;
@@ -235,11 +247,10 @@ export default {
 
         .green {
           display: flex;
-          // background-color: slateblue;
 
           .green_name {
-            font-size: 2em;
             margin-right: 50px;
+            font-size: 2em;
             font-family: 'NanumSquareNeoExtraBold';
           }
 

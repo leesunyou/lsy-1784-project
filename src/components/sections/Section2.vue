@@ -1,5 +1,3 @@
-<!-- 혁신을 현실로 ~ 스크롤마다 프레임~~~~ -->
-
 <template>
   <section class="section2">
     <div class="section2_bg">
@@ -15,34 +13,22 @@
 </template>
 
 <script>
-// window.addEventListener('scroll', function () {
-//   console.log(window.scrollY)
-// });
-// 스크롤 위치 구하기
-
 export default {
   name: 'Section2',
 
   computed: {
     titleFontSize() {
-      return `${10 + Math.min(100, Math.max(0, this.scrollTop-200))}em`
-      // return (10 + Math.min(100, Math.max(0, this.scrollTop - 200))) + 'em'
+      return `${10 + Math.min(100, Math.max(0, this.scrollTop - 200))}em`
     },
 
     titleOpacity() {
       if (this.scrollTop < 150)
-      return Math.min(20, this.scrollTop - 120) * 0.05
+        return Math.min(20, this.scrollTop - 120) * 0.05
       return 1 - Math.min(40, this.scrollTop - 200) * 0.03
     }
   },
 
-  props: ['scrollTop'],
-
-  data() {
-    return {
-
-    }
-  }
+  props: ['scrollTop']
 }
 </script>
 
@@ -52,19 +38,10 @@ export default {
   width: 100vw;
   height: 400vh;
 
-  // background: pink;
-  // height: 2000px;
-
   .section2_bg {
-    // sticky? background-attachment?
-
     position: sticky;
     top: 0px;
     width: 100%;
-
-    // background-attachment: fixed;
-    // height: 3000px;
-    // 이미지 뭐로 하지...
 
     picture {
       position: absolute;
@@ -77,9 +54,6 @@ export default {
         height: 100vh;
         object-fit: cover;
       }
-
-      // opacity: .2;
-      // background-color: pink;
     }
   }
 

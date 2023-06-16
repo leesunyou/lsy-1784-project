@@ -1,14 +1,14 @@
 <template>
   <header>
     <div class="header">
-      <a href="#">
+      <a href="@/App.vue">
         <h1 class="logo">
           1784<span> THE TESTBED</span>
         </h1>
       </a>
 
       <div class="story">
-        <a href="#">
+        <a href="#" onclick="return false">
           <p>스토리</p>
         </a>
       </div>
@@ -36,14 +36,12 @@ header {
   height: 65px;
   background: rgba(0, 0, 0, .1);
   backdrop-filter: saturate(180%) blur(20px);
-  // background-color: #333;
 
   .header {
     position: relative;
     width: 90%;
     height: 100%;
     margin: 0 auto;
-    // background-color: yellow;
 
     a {
 
@@ -56,8 +54,6 @@ header {
         color: #fff;
         font-size: 2.4em;
         font-family: 'NanumSquareNeoExtraBold';
-        // background-color: pink;
-        // transform: translateY(-50%);
       }
     }
 
@@ -70,7 +66,6 @@ header {
       height: 40px;
       border: 1px solid #fff;
       border-radius: 25px;
-      // background: pink;
 
       a {
 
@@ -80,7 +75,6 @@ header {
           color: #fff;
           font-size: 1.5em;
           text-align: center;
-          // background-color: pink;
         }
       }
     }
@@ -90,19 +84,14 @@ header {
       top: 19px;
       right: 0;
       width: 70px;
-      // display: inline-block;
-      // background-color: pink;
 
       button {
         height: 25px;
-        // display: inline-block;
-        // background: cornflowerblue;
 
         img {
           display: inline-block;
           width: 25px;
           filter: invert(98%) sepia(8%) saturate(984%) hue-rotate(218deg) brightness(119%) contrast(100%);
-          // background-color: pink;
         }
 
         p {
@@ -112,7 +101,6 @@ header {
           font-size: 1.5em;
           font-family: 'NanumSquareNeoExtraBold';
           transform: translateY(-8px);
-          // background-color: palegoldenrod;
         }
 
         span {
@@ -120,7 +108,6 @@ header {
           top: 8px;
           margin-left: 7px;
           color: #fff;
-          // background-color: purple;
         }
       }
     }

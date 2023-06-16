@@ -4,7 +4,7 @@
     <Section2 class="section2" :scrollTop="scrollTop - 700" />
     <Section3 class="section3" :scrollTop="scrollTop - 500" />
     <Section4 class="section4" :scrollTop="scrollTop - 300" />
-    <Section5 class="section5" />
+    <Section5 class="section5"/>
     <Footer class="footer" />
 </template>
 
@@ -67,16 +67,4 @@ export default {
   transition: .3s;
   opacity: v-bind('headerOpacity');
 }
-
-// .section1 {
-//   z-index: 1;
-// }
-
-// .section2 {
-//   z-index: 2;
-// }
-
-// .section3 {
-//   z-index: 3;
-// }
 </style>

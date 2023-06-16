@@ -1,12 +1,6 @@
 <template>
   <section class="section4">
     <div class="section4_bg">
-      <!-- <div class="roll">
-        <div v-for="item in item" class="textbox">
-          <p class="text">{{ item.text }}</p>
-          <p class="arrow">{{ item.arrow }}</p>
-        </div>
-      </div> -->
       <div class="container">
         <div class="wrapper">
           <div class="tech wrap">
@@ -28,12 +22,12 @@
                   세계 최초 로봇 친화형 건물 - 스마트도시협회 인증 2022
                 </p>
                 <div class="main_img">
-                  <img src="@/assets/images/section4/tech_main_1.jpeg" alt="naver1784">
+                  <img src="@/assets/images/section4/tech_main_1.jpeg" alt="TECH">
                 </div>
               </div>
 
               <div class="box" v-for="t_box1 in tech_box1" :key="t_box1">
-                <img :src="t_box1.img" alt="tech이미지">
+                <img :src="t_box1.img" alt="TECH">
                 <div class="text_box">
                   <p class="box_name">{{ t_box1.name }}</p>
                   <p class="box_desc" v-html="t_box1.desc"></p>
@@ -56,12 +50,12 @@
                   미래의 새로운 기준이 됩니다.
                 </p>
                 <div class="main_img">
-                  <img src="@/assets/images/section4/tech_main_2.jpeg" alt="naver1784">
+                  <img src="@/assets/images/section4/tech_main_2.jpeg" alt="TECH">
                 </div>
               </div>
 
               <div class="box" v-for="t_box2 in tech_box2" :key="t_box2">
-                <img :src="t_box2.img" alt="tech이미지">
+                <img :src="t_box2.img" alt="TECH">
                 <div class="text_box">
                   <p class="box_name">{{ t_box2.name }}</p>
                   <p class="box_desc" v-html="t_box2.desc"></p>
@@ -82,12 +76,12 @@
                   모두가 안전하게 일할 수 있는 공간을 만들어 갑니다.
                 </p>
                 <div class="main_img">
-                  <img src="@/assets/images/section4/new_main_1.jpeg" alt="naver1784">
+                  <img src="@/assets/images/section4/new_main_1.jpeg" alt="NEW NORMAL">
                 </div>
               </div>
 
               <div class="box" v-for="n_box1 in new_box1" :key="n_box1">
-                <img :src="n_box1.img" alt="new이미지">
+                <img :src="n_box1.img" alt="NEW NORMAL">
                 <div class="text_box">
                   <p class="box_name">{{ n_box1.name }}</p>
                   <p class="box_desc" v-html="n_box1.desc"></p>
@@ -108,12 +102,12 @@
                   에너지 절감까지 가능한 친환경 인프라 시스템을 만들었습니다.
                 </p>
                 <div class="main_img">
-                  <img src="@/assets/images/section4/eco_main_1.jpeg" alt="naver1784">
+                  <img src="@/assets/images/section4/eco_main_1.jpeg" alt="ECO">
                 </div>
               </div>
 
               <div class="box" v-for="e_box1 in eco_box1" :key="e_box1">
-                <img :src="e_box1.img" alt="eco이미지">
+                <img :src="e_box1.img" alt="ECO">
                 <div class="text_box">
                   <p class="box_name">{{ e_box1.name }}</p>
                   <p class="box_desc" v-html="e_box1.desc"></p>
@@ -136,12 +130,12 @@
                   시작됩니다.
                 </p>
                 <div class="main_img">
-                  <img src="@/assets/images/section4/with_main_1.jpeg" alt="naver1784">
+                  <img src="@/assets/images/section4/with_main_1.jpeg" alt="WITH">
                 </div>
               </div>
 
               <div class="box" v-for="w_box1 in with_box1" :key="w_box1">
-                <img :src="w_box1.img" alt="with_이미지">
+                <img :src="w_box1.img" alt="WITH">
                 <div class="text_box">
                   <p class="box_name">{{ w_box1.name }}</p>
                   <p class="box_desc" v-html="w_box1.desc"></p>
@@ -160,11 +154,8 @@ export default {
   name: 'Section4',
   computed: {
     bgColor() {
-      if (this.scrollTop < 1920) {
+      if (this.scrollTop < 1935) {
         return `#000`
-      }
-      else if (this.scrollTop < 1980) {
-        return `#999`
       }
       else {
         return `#fff`
@@ -172,13 +163,8 @@ export default {
     },
 
     wrapperTransform() {
-      // return `translateX(-${3700}px)`
-      
-      // return `translateX(-${this.scrollTop * 1.2}px)`
       return `translateX(-${Math.max(0, (this.scrollTop - 1700) * 9)}px)`
     }
-
-
   },
 
   props: ['scrollTop'],
@@ -294,10 +280,6 @@ export default {
     }
   }
 }
-
-// window.addEventListener('scroll', function () {
-//   console.log(window.scrollY)
-// });
 </script>
 
 <style scoped lang="scss">
@@ -307,20 +289,18 @@ export default {
   width: 540.5vw;
   height: 1000vh;
   background: v-bind('bgColor');
-  transition: .7s;
+  transition: 1.2s;
 
   .section4_bg {
+    overflow: hidden;
     position: sticky;
     top: 0px;
     width: 100%;
-    overflow: hidden;
 
     .wrapper {
-      // display: inline-block;
       display: flex;
       height: 100vh;
       width: 600vw;
-      // transform: translateX(-100px);
       transform: v-bind('wrapperTransform');
 
       .tech_2 {
@@ -340,38 +320,29 @@ export default {
       }
 
       .wrap {
-        // overflow: hidden;
-        position: relative;
-        // display: inline-block;
         display: flex;
-        // background-color: pink;
+        position: relative;
         width: 100%;
 
         .main_title {
-          padding-top: 180px;
-          margin-left: 85px;
           margin-bottom: 40px;
-          // background-color: pink;
+          margin-left: 85px;
+          padding-top: 180px;
           font-size: 6.5em;
           font-family: 'NanumSquareNeoHeavy';
         }
 
         .cont {
           display: flex;
-          flex-wrap: wrap;
-          // background-color: yellow;
-          // margin-right: 30px;
-          // width: 2000px;
-          height: 446px;
           position: absolute;
           bottom: 100px;
+          height: 446px;
+          flex-wrap: wrap;
 
           .item {
             position: relative;
             width: 350px;
             margin-right: 140px;
-            // display: inline-block;
-            // background-color: pink;
             margin-left: 85px;
 
             .sub_title {
@@ -381,15 +352,15 @@ export default {
             }
 
             .desc_1 {
+              margin-bottom: 15px;
               font-size: 1.3em;
               line-height: 21px;
-              margin-bottom: 15px;
             }
 
             .desc_2 {
-              font-size: 1.3em;
-              color: #ccc;
               margin-bottom: 30px;
+              color: #ccc;
+              font-size: 1.3em;
             }
 
             .main_img {
@@ -403,15 +374,12 @@ export default {
           }
 
           .box {
-            position: relative;
-            // background: pink;
-            width: 320px;
-            // height: 446px;
-            // display: inline-block;
-            // display: flex;
-            border-radius: 20px;
             overflow: hidden;
+            position: relative;
+            width: 320px;
             margin-right: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
 
             img {
               width: 100%;
@@ -423,26 +391,23 @@ export default {
             }
 
             .text_box {
-              // width: 320px;
-              width: 100%;
-              height: 130px;
               position: absolute;
               bottom: 0;
+              width: 100%;
+              height: 130px;
               background: rgba(0, 0, 0, .2);
               backdrop-filter: saturate(180%) blur(20px);
 
               .box_name,
               .box_desc {
                 color: #fff;
-                // 항상 #fff
               }
 
               .box_name {
+                margin-bottom: 15px;
+                padding-top: 30px;
                 font-size: 1.6em;
                 text-align: center;
-                padding-top: 30px;
-                margin-bottom: 15px;
-                // background-color: pink;
               }
 
               .box_desc {
@@ -458,7 +423,6 @@ export default {
 
     .white {
       color: #fff;
-      // color - if scrollTop 해서 #000으로 색상 변경
     }
 
     .black {

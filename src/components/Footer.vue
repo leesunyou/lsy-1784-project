@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <a href="#" class="naver_logo">
+    <a href="@/App.vue" class="naver_logo">
       <div class="logo_wrap">
         <img src="@/assets/images/footer/logo.png" alt="naver">
       </div>
@@ -9,12 +9,12 @@
     <p class="sub">1784</p>
 
     <ul class="site">
-      <li><a href="#">NAVER CLOUD</a></li>
-      <li><a href="#">WORKS MOBILE</a></li>
-      <li><a href="#">SNOW</a></li>
-      <li><a href="#">NAVER LABS</a></li>
-      <li><a href="#">NAVER WEBTOON</a></li>
-      <li class="last_li"><a href="#">NAVER FINANCIAL</a></li>
+      <li><a href="#" onclick="return false">NAVER CLOUD</a></li>
+      <li><a href="#" onclick="return false">WORKS MOBILE</a></li>
+      <li><a href="#" onclick="return false">SNOW</a></li>
+      <li><a href="#" onclick="return false">NAVER LABS</a></li>
+      <li><a href="#" onclick="return false">NAVER WEBTOON</a></li>
+      <li class="last_li"><a href="#" onclick="return false">NAVER FINANCIAL</a></li>
     </ul>
 
     <p class="copy">
@@ -30,19 +30,17 @@
 <style scoped lang="scss">
 footer {
   position: relative;
-  background: #000;
   width: 100%;
-  margin-top: 255px;
   height: 180px;
+  background: #000;
 
   .naver_logo {
 
     .logo_wrap {
       position: absolute;
-      // background-color: pink;
+      top: 30px;
       width: 120px;
       margin-left: 100px;
-      top: 30px;
 
       img {
         width: 100%;
@@ -51,16 +49,15 @@ footer {
   }
 
   .sub {
-    color: #fff;
-    font-size: 2.5em;
     position: absolute;
     top: 30px;
     right: 100px;
+    color: #fff;
+    font-size: 2.5em;
   }
 
   .site {
     display: flex;
-    // background-color: pink;
     position: absolute;
     top: 90px;
     left: 100px;
@@ -68,15 +65,15 @@ footer {
     li {
 
       &::after {
-        margin-left: 15px;
         margin-right: 15px;
-        content: '|';
+        margin-left: 15px;
         color: #777;
+        content: '|';
       }
 
       a {
-        font-size: 1.4em;
         color: #fff;
+        font-size: 1.4em;
       }
     }
 
@@ -86,17 +83,14 @@ footer {
         content: none;
       }
     }
-
-
   }
 
   .copy {
-    color: #fff;
     position: absolute;
     bottom: 30px;
+    left: 100px;
     font-size: 1.4em;
     color: #aaa;
-    left: 100px;
   }
 }
 </style>

@@ -17,7 +17,7 @@
       </div>
 
       <div class="naver_img">
-        <img src="@/assets/images/naver.svg" alt="naver">
+        <img src="@/assets/images/naver.svg" alt="NAVER">
       </div>
 
       <div class="desc">
@@ -28,14 +28,14 @@
         <p class="desc_5 desc2">실험하고 도전하며 새로운 내일을 만들어 갑니다.</p>
 
         <div class="brand_film go">
-          <a href="#">
+          <a href="#" onclick="return false">
             <p class="brand_title">브랜드 필름 보기</p>
             <p class="brand_arrow">&#8680;</p>
           </a>
         </div>
 
         <div class="story_now go">
-          <a href="#">
+          <a href="#" onclick="return false">
             <p class="story_title">스토리 바로 보기</p>
             <p class="story_arrow">&#8681;</p>
           </a>
@@ -106,23 +106,14 @@ export default {
     },
 
     desc1Opacity() {
-      // if (this.scrollTop < 430)
-      //   return 0
-
       return Math.min(30, this.scrollTop - 430) * 0.03
     },
 
     desc2Opacity() {
-      // if (this.scrollTop < 480)
-      //   return 0
-
       return Math.min(30, this.scrollTop - 470) * 0.03
     },
 
     goOpacity() {
-      // if (this.scrollTop < 530)
-      //   return 0
-
       return Math.min(30, this.scrollTop - 510) * 0.03
     }
   },
@@ -140,20 +131,15 @@ export default {
 //   console.log(window.scrollY)
 // });
 // 스크롤 위치 구하기
-
 </script>
 
 <style scoped lang="scss">
 .section1 {
-  position: relative;
   overflow: hidden;
+  position: relative;
   width: 100vw;
   height: 750vh;
   background: #000;
-
-  // top: 0;
-  // width: 100%;
-  // height: 2200px;
 
   .video {
     position: fixed;
@@ -162,14 +148,12 @@ export default {
     width: 100vw;
     height: 100vh;
 
-    // overflow: hidden;
-
     video {
+      display: v-bind('videoDisplay');
       position: relative;
-      object-fit: cover;
       width: 100%;
       height: 100%;
-      display: v-bind('videoDisplay');
+      object-fit: cover;
     }
   }
 
@@ -189,9 +173,6 @@ export default {
       text-align: center;
       transform: v-bind('titleTransform');
       opacity: v-bind('titleOpacity');
-
-      // transition: .5s;
-      // background-color: pink;
     }
 
     .the,
@@ -203,9 +184,6 @@ export default {
       font-size: v-bind('mainFontSize');
       font-family: 'NanumSquareNeoExtrabold';
       opacity: v-bind('mainOpacity');
-
-      // background-color: pink;
-      // transition: all .3s;
     }
 
     .the {
@@ -230,8 +208,6 @@ export default {
       transform: translateX(-50%);
       opacity: v-bind('arrowOpacity');
       animation: arrow .9s ease-in-out infinite;
-
-      // background-color: pink;
 
       @keyframes arrow {
         0% {
@@ -260,9 +236,6 @@ export default {
       width: 360px;
       transform: v-bind('naverTransform');
       opacity: v-bind('naverOpacity');
-
-      // transition: .5s;
-      // background-color: pink;
     }
 
     .desc {
@@ -270,7 +243,6 @@ export default {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      // background-color: pink;
 
       .desc_1,
       .desc_2,
@@ -281,8 +253,6 @@ export default {
         font-size: 2.6em;
         text-align: center;
         line-height: 40px;
-
-        // opacity: .3;
       }
 
       .desc_2 {
@@ -291,19 +261,15 @@ export default {
 
       .desc1 {
         opacity: v-bind('desc1Opacity');
-
-        // transition: .5s;
       }
 
       .desc2 {
         opacity: v-bind('desc2Opacity');
-
-        // transition: .5s;
       }
 
       .go {
-        opacity: v-bind('goOpacity');
         transition: .5s;
+        opacity: v-bind('goOpacity');
       }
 
       .brand_film {
@@ -325,8 +291,6 @@ export default {
           height: 62px;
           border-radius: 30px;
 
-          // background: pink;
-
           p {
             display: inline-block;
             color: #fff;
@@ -340,8 +304,6 @@ export default {
 
           .brand_arrow {
             margin-left: 250px;
-
-            // background-color: pink;
           }
         }
       }
@@ -354,7 +316,6 @@ export default {
         border: 1px solid #fff;
         border-radius: 35px;
         background: #fff;
-        // transition: .4s;
 
         &:hover {
           background: #000;
@@ -370,8 +331,6 @@ export default {
           width: 100%;
           height: 62px;
           border-radius: 30px;
-
-          // margin-bottom: ;
 
           p {
             display: inline-block;
@@ -394,4 +353,4 @@ export default {
     }
   }
 }
-</style>​
+</style>
