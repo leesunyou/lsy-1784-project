@@ -31,9 +31,15 @@ export default {
     Footer
   },
 
+  data() {
+    return {
+      scrollTop: 0
+    }
+  },
+
   mounted() {
     window.scrollTo(0, 0);
-    document.addEventListener('scroll', this.onScroll);
+    document.addEventListener('scroll', this.scroll);
   },
 
   computed: {
@@ -43,20 +49,10 @@ export default {
     }
   },
 
-  beforeUnmount() {
-    document.removeEventListener('scroll', this.onScroll);
-  },
-
   methods: {
-    onScroll() {
+    scroll() {
       this.scrollY = window.scrollY
       this.scrollTop = window.scrollY / window.outerHeight * 100
-    }
-  },
-
-  data() {
-    return {
-      scrollTop: 0
     }
   }
 }
@@ -66,5 +62,12 @@ export default {
 .header {
   transition: .3s;
   opacity: v-bind('headerOpacity');
+}
+
+.top {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background: pink;
 }
 </style>

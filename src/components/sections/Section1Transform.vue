@@ -6,7 +6,9 @@
       </video>
     </div>
     <div class="bg_filter">
-      <p class="title">1784</p>
+      <div class="title_wrap">
+        <p class="title">1784</p>
+      </div>
 
       <p class="the">THE</p>
       <p class="test">TEST</p>
@@ -58,16 +60,12 @@ export default {
   computed: {
     videoDisplay() {
       if (this.scrollTop > 900)
-      return `none`
+        return `none`
     },
 
-    titleFontSize() {
-      return ((130 - Math.min(110, this.scrollTop)) * 0.6) + 'em'
-    },
-    
-    titleTransform() {
-      return 'translate(' + (-50 - Math.min(50, Math.max(0, (this.scrollTop - 100)))) + '%,' + (-50 - Math.min(100, Math.max(0, (this.scrollTop - 180) * 2)) * 1.5) + '%)'
-    },
+    // titleTransform() {
+    //   return `translate3d(${-50}%, ${-50}%, ${this.scrollTop - 50}px)`
+    // },
 
     titleOpacity() {
       return 1 - Math.min(60, this.scrollTop - 300) * 0.06
@@ -94,7 +92,7 @@ export default {
     bedRight() {
       if (this.scrollTop < 250)
         return Math.min(40, (this.scrollTop - 200)) + '%'
-      return 40 + (this.scrollTop - 250) * 0.5 +'%'
+      return 40 + (this.scrollTop - 250) * 0.5 + '%'
     },
 
     arrowOpacity() {
@@ -163,17 +161,20 @@ export default {
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
 
-    .title {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      color: #fff;
-      font-size: v-bind('titleFontSize');
-      // font-size 말고 trnaslate3d로도 ㄱㄴ
-      font-family: 'NanumSquareNeoExtraBold';
-      text-align: center;
-      transform: v-bind('titleTransform');
-      opacity: v-bind('titleOpacity');
+    .title_wrap {
+      perspective: 30px;
+
+      .title {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        color: #fff;
+        font-size: 12em;
+        font-family: 'NanumSquareNeoExtraBold';
+        text-align: center;
+        // transform: v-bind('titleTransform');
+        opacity: v-bind('titleOpacity');
+      }
     }
 
     .the,
@@ -282,16 +283,16 @@ export default {
         border-radius: 35px;
 
         &:hover {
-            background: rgba(0, 0, 0, .6);
-          }
-        
+          background: rgba(0, 0, 0, .6);
+        }
+
         a {
           display: block;
           position: relative;
           width: 100%;
           height: 62px;
           border-radius: 30px;
-          
+
           p {
             display: inline-block;
             color: #fff;

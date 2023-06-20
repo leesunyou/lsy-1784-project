@@ -74,6 +74,13 @@ footer {
       a {
         color: #fff;
         font-size: 1.4em;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 2px;
+        transition: .2s;
+
+        &:hover {
+          border-bottom: 1px solid #fff;
+        }
       }
     }
 

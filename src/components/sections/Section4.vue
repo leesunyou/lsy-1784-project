@@ -26,8 +26,15 @@
                 </div>
               </div>
 
-              <div class="box" v-for="t_box1 in tech_box1" :key="t_box1">
-                <img :src="t_box1.img" alt="TECH">
+              <div 
+                class="box" 
+                v-for="(t_box1, t_boxIndex) in tech_box1"  
+                :key="`t_box1-${t_boxIndex}`"
+              >
+                <img
+                  :src="t_box1.img"
+                  alt="TECH"
+                >
                 <div class="text_box">
                   <p class="box_name">{{ t_box1.name }}</p>
                   <p class="box_desc" v-html="t_box1.desc"></p>
@@ -54,8 +61,15 @@
                 </div>
               </div>
 
-              <div class="box" v-for="t_box2 in tech_box2" :key="t_box2">
-                <img :src="t_box2.img" alt="TECH">
+              <div
+                class="box"
+                v-for="(t_box2, t_boxIndex) in tech_box2"
+                :key="`t_box2-${t_boxIndex}`"
+              >
+                <img
+                  :src="t_box2.img"
+                  alt="TECH"
+                >
                 <div class="text_box">
                   <p class="box_name">{{ t_box2.name }}</p>
                   <p class="box_desc" v-html="t_box2.desc"></p>
@@ -80,8 +94,15 @@
                 </div>
               </div>
 
-              <div class="box" v-for="n_box1 in new_box1" :key="n_box1">
-                <img :src="n_box1.img" alt="NEW NORMAL">
+              <div
+                class="box"
+                v-for="(n_box1, n_boxIndex) in new_box1"
+                :key="`n_box1-${n_boxIndex}`"
+              >
+                <img
+                  :src="n_box1.img"
+                  alt="NEW NORMAL"
+                >
                 <div class="text_box">
                   <p class="box_name">{{ n_box1.name }}</p>
                   <p class="box_desc" v-html="n_box1.desc"></p>
@@ -106,8 +127,15 @@
                 </div>
               </div>
 
-              <div class="box" v-for="e_box1 in eco_box1" :key="e_box1">
-                <img :src="e_box1.img" alt="ECO">
+              <div
+                class="box"
+                v-for="(e_box1, e_boxIndex) in eco_box1"
+                :key="`e_box1-${e_boxIndex}`"
+              >
+                <img
+                  :src="e_box1.img"
+                  alt="ECO"
+                >
                 <div class="text_box">
                   <p class="box_name">{{ e_box1.name }}</p>
                   <p class="box_desc" v-html="e_box1.desc"></p>
@@ -134,8 +162,15 @@
                 </div>
               </div>
 
-              <div class="box" v-for="w_box1 in with_box1" :key="w_box1">
-                <img :src="w_box1.img" alt="WITH">
+              <div
+                class="box"
+                v-for="(w_box1, w_boxIndex) in with_box1"
+                :key="`w_box1-${w_boxIndex}`"
+              >
+                <img
+                  :src="w_box1.img"
+                  alt="WITH"
+                >
                 <div class="text_box">
                   <p class="box_name">{{ w_box1.name }}</p>
                   <p class="box_desc" v-html="w_box1.desc"></p>
